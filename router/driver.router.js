@@ -10,8 +10,8 @@ router.post('/', DriverController.create)
 
 router.get('/:id', DriverController.findById)
 
-router.put('/:id', DriverController.update);
+router.post('/put/:id', DriverController.update);
 
-router.delete('/:id', DriverController.delete)
+router.get('/delete/:id', DriverController.delete)
 
 module.exports = router;

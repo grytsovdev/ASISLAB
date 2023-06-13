@@ -10,8 +10,8 @@ router.post('/', CarModelController.create)
 
 router.get('/:id', CarModelController.findById)
 
-router.put('/:id', CarModelController.update);
+router.post('/put/:id', CarModelController.update);
 
-router.delete('/:id', CarModelController.delete)
+router.get('/delete/:id', CarModelController.delete)
 
 module.exports = router;

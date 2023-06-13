@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+
+        <title>Редагування</title>
+    </head>
+    <body>
+        <h1 class="text-center">Редагувати Водія</h1>
+        <form action method="POST" class="text-center">
+            <div class="mb-3">
+                <label>
+                    Номер моделі
+                    <input type="text" class="form-control"
+                        placeholder="Номер модел" id="model_id"
+                        name="model_id">
+                </label>
+                <label>
+                    Номер паспорту водія
+                    <input type="text" class="form-control"
+                        placeholder="номер паспорту" id="driver_passport_number"
+                        name="driver_passport_number">
+                </label>
+                <label>
+                    Рік випуску
+                    <input type="text" class="form-control"
+                        placeholder="Рік випуску" id="manufacture_year"
+                        name="manufacture_year">
+                </label>
+                <label>
+                    Чи активна машина
+                    <input type="text" class="form-control"
+                        placeholder="Активна" id="active"
+                        name="active">
+                </label>
+                <label>
+                    реєстраційний номер
+                    <input type="text" class="form-control"
+                        placeholder="номер" id="plate_number"
+                        name="plate_number">
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary"
+                formaction="/api/driver/put/<%= Driver[0].passport_number%>">
+                Редагувати</button>
+        </form>
+        <a class="btn btn-info" href="/api/driver">Повернутися</a>
+    </body>
+</html>

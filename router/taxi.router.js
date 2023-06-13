@@ -10,8 +10,8 @@ router.post('/', TaxiController.create)
 
 router.get('/:id', TaxiController.findById)
 
-router.put('/:id', TaxiController.update);
+router.post('/put/:id', TaxiController.update);
 
-router.delete('/:id', TaxiController.delete)
+router.get('/delete/:id', TaxiController.delete)
 
 module.exports = router;

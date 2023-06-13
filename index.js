@@ -7,9 +7,9 @@ const app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-
+app.use(express.static("."));
 app.get('/', (req, res) => {
-    res.status(200).json("Server works")
+    res.render('index.ejs')
 })
 
 const driverRouter = require('./router/driver.router')

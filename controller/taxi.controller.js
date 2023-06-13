@@ -3,13 +3,13 @@ const Taxi = require('../model/taxi.model')
 exports.findAll = (req, res) => {
     Taxi.findAll((err, taxi) => {
         if (err) res.send(err);
-        res.send(taxi);
+        res.render('taxi.ejs', { Taxi: taxi })
     })
 }
 exports.findById = (req, res) => {
     Taxi.findById(req.params.id, (err, taxi) => {
         if (err) res.send(err)
-        res.json(taxi);
+        res.render('taxi_edit.ejs', { Taxi: taxi })
     })
 }
 
@@ -21,7 +21,7 @@ exports.create = function (req, res) {
     } else {
         Taxi.create(new_Taxi, (err, Taxi) => {
             if (err) res.send(err);
-            res.json({ error: false, message: "Taxi created succefully", data: Taxi })
+            res.redirect('/api/taxi')
         })
     }
 }
@@ -31,7 +31,7 @@ exports.update = (req, res) => {
     } else {
         Taxi.update(req.params.id, new Taxi(req.body), (err, Taxi) => {
             if (err) res.send(err);
-            res.json({ error: false, message: "Taxi updated succefully", data: Taxi })
+            res.redirect('/api/taxi')
 
         })
     }
@@ -40,7 +40,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     Taxi.delete(req.params.id, (err, Taxi) => {
         if (err) res.send(err)
-        res.json({ error: false, message: "Taxi deleted successfully" })
+        res.redirect('/api/taxi')
     })
 }
 
